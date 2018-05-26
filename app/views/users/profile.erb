@@ -1,1 +1,6 @@
 <h2>Welcome, <%= @user.email %></h2>
+
+<form action="/Topics/new" method="post">
+  <input type="text" name="title">
+  <input type="submit" value="Create Topic">
+</form>
