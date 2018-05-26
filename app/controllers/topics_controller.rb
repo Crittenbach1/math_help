@@ -29,6 +29,13 @@ class ApplicationController < Sinatra::Base
    end
   end
 
+  post '/topics/edit/:id' do
+    @topic = Topic.find(params[:id].to_i)
+    @topic.title = params[:title]
+    @topic.save
+    redirect "users/profile"
+end
+
 
 
 
