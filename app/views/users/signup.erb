@@ -8,3 +8,9 @@
 
   <input type="submit" value="Sign Up">
 </form>
+
+<br>
+
+<% if @error_message %>
+<li><%= @error_message %></li>
+<% end %>

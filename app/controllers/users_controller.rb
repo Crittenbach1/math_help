@@ -13,6 +13,10 @@ class ApplicationController < Sinatra::Base
        if Helper.is_logged_in?(session) == true
         redirect '/users/profile'
        else
+         if session[:error_message] != nil
+           @error_message = session[:error_message]
+           session[:error_message] = nil
+         end 
         erb :'users/signup'
        end
      end
@@ -24,6 +28,7 @@ class ApplicationController < Sinatra::Base
          session[:user_id] = @user.id
          redirect '/users/profile'
        else
+         session[:error_message] = "please fill out form with a unique email and password"
          redirect '/users/new'
        end
      end
