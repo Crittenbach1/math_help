@@ -14,4 +14,10 @@ class ApplicationController < Sinatra::Base
     redirect "/users/profile"
   end
 
+  get '/topics/:id' do
+    erb :'topics/show_topic'
+  end
+
+
+
 end
