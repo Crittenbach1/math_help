@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% if Helper.is_logged_in?(session) == true %>
+     <form action="/logout" method="get">
+       <input type="submit" value="Log Out">
+     </form>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>
