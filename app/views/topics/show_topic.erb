@@ -6,3 +6,20 @@
 <form action="/topics/delete/<%="#{@topic.id}"%>" method="post">
   <input type="submit" name="delete" value="Delete">
 </form>
+
+<% @resources = Helper.get_resources(@topic) %>
+<% @resources.each do |resource| %>
+<p><%= resource.title %></p>
+<p><%= resource.content %></p>
+
+<form action="/Resources/delete/<%="#{resource.id}"%>" method="post">
+  <input type="submit" name="delete" value="Delete">
+</form>
+<p>------------------------------</p>
+<% end %>
+
+<form action="/Resources/new/<%="#{@topic.id}"%>" method="post">
+  <input type="text" name="title" value="title">
+  <input type="text" name="content">
+  <input type="submit" value="add a resource">
+</form>
