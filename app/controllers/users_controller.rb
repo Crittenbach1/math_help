@@ -29,8 +29,13 @@ class ApplicationController < Sinatra::Base
          redirect '/login'
        else
          @user = Helper.current_user(session)
-       end
+         @topics = []
+         Topic.all.each do |topic|
+           if topic.user_id == @user.id
+             @topics << topic
+           end
+        end
        erb :'users/profile'
      end
-
+  end 
 end
