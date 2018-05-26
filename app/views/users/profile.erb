@@ -12,6 +12,10 @@
   <% @resources.each do |resource| %>
   <p><%= resource.title %></p>
   <p><%= resource.content %></p>
+
+  <form action="/Resources/delete/<%="#{resource.id}"%>" method="post">
+    <input type="submit" name="delete" value="Delete">
+  </form>
   <p>------------------------------</p>
   <% end %>
 
