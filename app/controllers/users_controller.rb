@@ -15,8 +15,13 @@ class ApplicationController < Sinatra::Base
 
      post '/users/new' do
        @user = User.create(email: params[:email], password: params[:password])
-       session[:user_id] = @user.id
-       redirect '/users/profile'
+
+       if @user.save && params[:email] != "" && params[:password] != ""
+         session[:user_id] = @user.id
+         redirect '/users/profile'
+       else
+         redirect '/users/new'
+       end
      end
 
      get '/users/profile' do
