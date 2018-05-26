@@ -15,6 +15,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/topics/:id' do
+    @topic = Topic.find(params[:id])
+    
     erb :'topics/show_topic'
   end
 
