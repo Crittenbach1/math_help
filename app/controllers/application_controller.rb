@@ -14,6 +14,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
+    if Helper.is_logged_in?(session) == true
+      redirect '/users/profile'
+    end
     erb :'users/login'
   end
 
