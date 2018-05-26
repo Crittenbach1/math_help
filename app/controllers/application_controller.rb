@@ -25,8 +25,12 @@ class ApplicationController < Sinatra::Base
       redirect '/users/profile'
     else
       redirect '/login'
-    end 
+    end
   end
 
+  get '/logout' do
+    session[:user_id] = nil
+    redirect '/'
+  end
 
 end
