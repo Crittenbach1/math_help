@@ -9,9 +9,17 @@ class Helper
       false
     else
       true
-    end 
+    end
   end
 
-
+  def self.get_resources(topic)
+    @resources = []
+    Resource.all.each do |r|
+      if r.topic_id == topic.id
+        @resources << r
+      end
+    end
+    @resources
+  end
 
 end
