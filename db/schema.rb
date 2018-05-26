@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180526002631) do
+ActiveRecord::Schema.define(version: 20180526012937) do
+
+  create_table "resources", force: :cascade do |t|
+    t.integer "topic_id"
+    t.string  "title"
+    t.string  "content"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.integer "user_id"
