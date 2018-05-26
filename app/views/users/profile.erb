@@ -7,4 +7,8 @@
 
 <% @topics.each do |topic| %>
   <a href="/topics/<%="#{topic.id}"%>"><%="#{topic.title}"%></a>
+
+  <form action="/topics/edit/<%="#{@topic.id}"%>" method="get">
+    <input type="submit" name="edit" value="Edit">
+  </form>
 <%end%>

@@ -1,1 +1,5 @@
 <h2><%= @topic.title %></h2>
+
+<form action="/topics/edit/<%="#{@topic.id}"%>" method="get">
+  <input type="submit" name="edit" value="Edit">
+</form>
