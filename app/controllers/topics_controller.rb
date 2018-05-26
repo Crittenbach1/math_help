@@ -16,9 +16,20 @@ class ApplicationController < Sinatra::Base
 
   get '/topics/:id' do
     @topic = Topic.find(params[:id])
-    
+
     erb :'topics/show_topic'
   end
+
+  get '/topics/edit/:id' do
+   @topic = Topic.find(params[:id].to_i)
+   if @topic.user_id != Helper.current_user(session).id
+     erb :error
+   else
+     erb :"topics/edit_topic"
+   end
+  end
+
+
 
 
 
