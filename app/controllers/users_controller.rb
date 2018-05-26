@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
      get '/users/new' do
-       erb :'users/signup'
+       if Helper.is_logged_in?(session) == true
+        redirect '/users/profile'
+       else
+        erb :'users/signup'
+       end
      end
 
      post '/users/new' do
@@ -37,5 +41,5 @@ class ApplicationController < Sinatra::Base
         end
        erb :'users/profile'
      end
-  end 
+  end
 end
