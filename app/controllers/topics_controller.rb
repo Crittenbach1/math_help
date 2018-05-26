@@ -34,10 +34,16 @@ class ApplicationController < Sinatra::Base
     @topic.title = params[:title]
     @topic.save
     redirect "users/profile"
-end
+  end
 
-
-
-
+  post '/topics/delete/:id' do
+    @topic = Topic.find(params[:id].to_i)
+    if @topic.user_id == Helper.current_user(session).id
+      @topic.delete
+    else
+     erb :error
+    end
+    redirect 'users/profile'
+  end
 
 end
