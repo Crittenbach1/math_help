@@ -15,6 +15,12 @@
   <p>------------------------------</p>
   <% end %>
 
+  <form action="/Resources/new/<%="#{topic.id}"%>" method="post">
+    <input type="text" name="title" value="title">
+    <input type="text" name="content">
+    <input type="submit" value="add a resource">
+  </form>
+
   <form action="/topics/edit/<%="#{topic.id}"%>" method="get">
     <input type="submit" name="edit" value="Edit">
   </form>
