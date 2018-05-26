@@ -1,0 +1,5 @@
+<%= @topic.title %>
+<form action="/topics/edit/<%="#{@topic.id}"%>" method="post">
+  <input type="text" name="title" value="edit title here">
+  <input type="submit" value="edit">
+</form>
