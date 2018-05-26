@@ -8,6 +8,13 @@
 <% @topics.each do |topic| %>
   <a href="/topics/<%="#{topic.id}"%>"><%="#{topic.title}"%></a>
 
+  <% @resources = Helper.get_resources(topic) %>
+  <% @resources.each do |resource| %>
+  <p><%= resource.title %></p>
+  <p><%= resource.content %></p>
+  <p>------------------------------</p>
+  <% end %>
+
   <form action="/topics/edit/<%="#{topic.id}"%>" method="get">
     <input type="submit" name="edit" value="Edit">
   </form>
